@@ -1,4 +1,4 @@
-package controller;
+package Singleton;
 
 public class Controller {
 
