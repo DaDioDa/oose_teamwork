@@ -33,56 +33,125 @@ interface MMBuilder
 
 class TomatoNoodle implements MMBuilder
 {
-    private Product Product;
+    private Product product;
 
     public TomatoNoodle() {
-        this.Product = new Product();
+        this.product = new Product();
     }
 
     public void buildsauce()
     {
-        Product.setSauce("Tomato");
+        product.setSauce("Tomato");
     }
     public void buildstaich()
     {
-        Product.setStaich("Noodle");
+        product.setStaich("Noodle");
     }
 
     public Product getProduct()
     {
-        return this.Product;
+        return this.product;
     }
+
+}
+
+class CreamNoodle implements MMBuilder
+{
+    private Product product;
+
+    public CreamNoodle() {
+        this.product = new Product();
+    }
+
+    public void buildsauce()
+    {
+        product.setSauce("Cream");
+    }
+    public void buildstaich()
+    {
+        product.setStaich("Noodle");
+    }
+
+    public Product getProduct()
+    {
+        return this.product;
+    }
+
+}
+
+class PestoNoodle implements MMBuilder
+{
+    private Product product;
+
+    public PestoNoodle() {
+        this.product = new Product();
+    }
+
+    public void buildsauce()
+    {
+        product.setSauce("Pesto");
+    }
+    public void buildstaich()
+    {
+        product.setStaich("Noodle");
+    }
+
+    public Product getProduct()
+    {
+        return this.product;
+    }
+
 }
 
 class Director
 {
-    private MMBuilder MMBuilder;
-    public Director(MMBuilder MMBuilder)
+    private MMBuilder mmBuilder;
+    public Director(MMBuilder mmBuilder)
     {
-        this.MMBuilder = MMBuilder;
+        this.mmBuilder = mmBuilder;
+    }
+    public void setBuilder(MMBuilder mmBuilder)
+    {
+        this.mmBuilder = mmBuilder;
     }
 
     public Product getProduct()
     {
-        return this.MMBuilder.getProduct();
+        return this.mmBuilder.getProduct();
     }
 
     public void makeProduct()
     {
-        this.MMBuilder.buildsauce();
-        this.MMBuilder.buildstaich();
+        this.mmBuilder.buildsauce();
+        this.mmBuilder.buildstaich();
     }
 }
 //main
 class Builder
 {
     public static void main(String[] args) {
+        //tomato noodle
         MMBuilder tomatonoodle = new TomatoNoodle();
-        Director Director = new Director(tomatonoodle);
-        Director.makeProduct();
-        Product Product = Director.getProduct();
-        //System.out.println("Main is "+ Product);
+        Director director = new Director(tomatonoodle);
+        director.makeProduct();
+        Product product = director.getProduct();
         System.out.println(tomatonoodle);
+
+        //cream noodle
+        MMBuilder creamnoodle = new CreamNoodle();
+        Director director2 = new Director(creamnoodle);
+        director2.makeProduct();
+        Product product2 = director2.getProduct();
+        //System.out.println("Main is "+ Product);
+        System.out.println(creamnoodle);
+
+        //pesto noodle
+        MMBuilder pestonoodle = new PestoNoodle();
+        Director director3 = new Director(pestonoodle);
+        director3.makeProduct();
+        Product product3 = director3.getProduct();
+        //System.out.println("Main is "+ Product);
+        System.out.println(pestonoodle);
     }
 }
 
