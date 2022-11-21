@@ -15,6 +15,7 @@ public class Main {
         p = new AddOrder( p,"牛肉湯",50.0f);
         p = new AddOrder( p,"焦糖布丁",50.0f);
 
-        System.out.println(p.getName() + p.getCost());
+        System.out.println(p.getName());
+        System.out.println(p.getCost()+"元");
     }
 }
