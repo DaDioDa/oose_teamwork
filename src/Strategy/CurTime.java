@@ -1,5 +1,4 @@
-package timePeriod;
-
+//Context class
 public class CurTime {
 	private TimeStrategy timeStrategy;
 	public void choiceStrategy(TimeStrategy strategy) {
