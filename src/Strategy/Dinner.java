@@ -1,5 +1,4 @@
-package timePeriod;
-
+//DinnerClass
 public class Dinner implements TimeStrategy{
 	@Override
 	public void execute() {
