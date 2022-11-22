@@ -1,5 +1,4 @@
-package timePeriod;
-
+//OutOfBusiness Class
 public class OutOfBusiness implements TimeStrategy{
 	@Override
 	public void execute() {
