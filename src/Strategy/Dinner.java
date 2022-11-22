@@ -1,4 +1,4 @@
-//DinnerClass
+//Dinner Class
 public class Dinner implements TimeStrategy{
 	@Override
 	public void execute() {
