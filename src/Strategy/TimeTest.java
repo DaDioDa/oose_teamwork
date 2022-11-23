@@ -16,6 +16,7 @@ public final class TimeTest {
 		
 		//現在時間
 		String nowTimeStr = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
+		//測試時請把本行註解
 		Date nowTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(nowTimeStr);
 		
 		//自行設定現在時間(測試用)
