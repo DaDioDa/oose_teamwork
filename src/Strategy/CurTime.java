@@ -1,4 +1,5 @@
 //Context class
+package Strategy;
 public class CurTime {
 	private TimeStrategy timeStrategy;
 	public void choiceStrategy(TimeStrategy strategy) {
