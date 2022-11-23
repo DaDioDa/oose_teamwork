@@ -2,9 +2,9 @@ package Builder;
 
 
 public interface MMBuilder {
-    public void buildsauce();
+    public void buildSauce();
 
-    public void buildstaich();
+    public void buildStarch();
 
     public Product getProduct();
 }

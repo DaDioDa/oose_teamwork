@@ -1,19 +1,25 @@
 package Builder;
 
-public class Product implements Productplan {
+import Decorator.Order;
+
+public class Product implements Productplan, Order {
     private String sauce;   //tomato
-    private String staich;  //rice
+    private String starch;  //rice
     private float cost;
 
-    public void setStaich(String staich) {
-        this.staich = staich;
+
+    public void setStarch(String starch) {
+        this.starch = starch;
     }
 
     public void setSauce(String sauce) {
         this.sauce = sauce;
     }
 
-    public String getStaich(){return this.staich;}
+    public float getCost(){ return cost; }
 
-    public String getSauce(){return  this.sauce;}
+    @Override
+    public String getName() {
+        return sauce + starch;
+    }
 }

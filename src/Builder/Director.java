@@ -17,7 +17,7 @@ public class Director {
     }
 
     public void makeProduct() {
-        this.mmBuilder.buildsauce();
-        this.mmBuilder.buildstaich();
+        this.mmBuilder.buildSauce();
+        this.mmBuilder.buildStarch();
     }
 }

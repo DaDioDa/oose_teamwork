@@ -1,3 +1,7 @@
+import Builder.Director;
+import Builder.MMBuilder;
+import Builder.Product;
+import Builder.TomatoNoodleBuilder;
 import Singleton.Controller;
 import Composite.*;
 import Decorator.*;
@@ -6,16 +10,22 @@ public class Main {
         System.out.println("Hello world!");
         Controller ctrl = Controller.getInstance();
         ctrl.Say();
-        Menu m = new Folder("義大利麵");
-        Menu It = new Item("唐揚雞義大利麵",150.0f);
-        System.out.println(It.getPrice()+It.getName());
 
-        Order p = new Product("紅醬");
-        p = new AddOrder( p,"唐揚雞義大利麵",150.0f);
-        p = new AddOrder( p,"牛肉湯",50.0f);
-        p = new AddOrder( p,"焦糖布丁",50.0f);
+        //Menu m = new Folder("義大利麵");
+        //Menu It = new Item("唐揚雞義大利麵",150.0f);
+        //System.out.println(It.getPrice()+It.getName());
 
-        System.out.println(p.getName());
-        System.out.println(p.getCost()+"元");
+
+        MMBuilder tomatonoodle = new TomatoNoodleBuilder();
+        Director director = new Director(tomatonoodle);
+        director.makeProduct();
+        Order product = director.getProduct();
+
+        product = new AddOrder( product,"唐揚雞",150.0f);
+        product = new AddOrder( product,"牛肉湯",50.0f);
+        product = new AddOrder( product,"焦糖布丁",50.0f);
+
+        System.out.println(product.getName());
+        System.out.println(product.getCost()+"元");
     }
 }

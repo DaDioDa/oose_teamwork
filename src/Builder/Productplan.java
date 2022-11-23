@@ -1,7 +1,7 @@
 package Builder;
 
 public interface Productplan {
-    public void setStaich(String staich);
+    public void setStarch(String starch);
 
     public void setSauce(String sauce);
 
