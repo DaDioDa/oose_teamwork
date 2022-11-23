@@ -2,7 +2,7 @@ package Builder;
 
 import Decorator.Order;
 
-public class Product implements Productplan, Order {
+public class Product implements Order {
     private String sauce;   //tomato
     private String starch;  //rice
     private float cost;
