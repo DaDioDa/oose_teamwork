@@ -1,5 +1,7 @@
 package Composite;
 
+import java.util.ArrayList;
+
 public class Item implements Menu
 {
     private String name;
@@ -17,6 +19,21 @@ public class Item implements Menu
 
     public float getPrice()
     {
-        return price * 0.9f;
+        return price;
+    }
+
+    @Override
+    public void add(Menu m) {
+
+    }
+
+    @Override
+    public void remove(Menu m) {
+
+    }
+
+    @Override
+    public ArrayList<Menu> getChildren() {
+        return null;
     }
 }
