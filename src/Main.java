@@ -8,40 +8,47 @@ import Decorator.*;
 public class Main {
     public static void main(String[] args) {
 
-        Menu m = new Folder("菜單");
+        Menu RootMenu = new Folder("菜單");
 
-        Menu m1 = new Folder("義大利麵");
-        Menu m2 = new Folder("飲料");
+        Menu m1 = new Folder("主菜");
+        Menu m2 = new Folder("湯品");
         Menu m3 = new Folder("甜點");
-
-        Menu m1_It1 = new Item("唐揚雞義大利麵",150.0f);
-        Menu m1_It2 = new Item("炙燒雞腿義大利麵",180.0f);
-        Menu m2_It1 = new Item("拿鐵",50.0f);
-        Menu m2_It2 = new Item("纖盈香草茶",60.0f);
+        Menu m4 = new Folder("飲料");
+        //--製造菜的object start--
+        Menu m1_It1 = new Item("唐揚雞",150.0f);
+        Menu m1_It2 = new Item("炙燒雞腿",180.0f);
+        Menu m2_It1 = new Item("玉米巧達濃湯",50.0f);
+        Menu m2_It2 = new Item("杏鮑菇南瓜濃湯",50.0f);
+        Menu m4_It1 = new Item("拿鐵",50.0f);
+        Menu m4_It2 = new Item("纖盈香草茶",60.0f);
         Menu m3_It1 = new Item("經典提拉米蘇",60.0f);
         Menu m3_It2 = new Item("草莓奶酪",80.0f);
-        m.add(m1);
-        m.add(m2);
-        m.add(m3);
+        //--製造菜的object end--
 
+        //--新增菜單跟菜start--
+        RootMenu.add(m1);
+        RootMenu.add(m2);
+        RootMenu.add(m3);
+        RootMenu.add(m4);
         m1.add(m1_It1);
         m1.add(m1_It2);
-
-
         m2.add(m2_It1);
         m2.add(m2_It2);
-
         m3.add(m3_It1);
         m3.add(m3_It2);
+        m4.add(m4_It1);
+        m4.add(m4_It2);
+        //--新增菜單跟菜end--
 
-        System.out.println("-------"+m.getName()+"------"); //菜單根目錄
-        for (int i =0;i< m.getChildren().size();i++)
+        System.out.println("-------"+RootMenu.getName()+"------"); //菜單根目錄
+        for (int i =0;i< RootMenu.getChildren().size();i++)
         {
-            System.out.println("===="+m.getChildren().get(i).getName()+"===="); //菜單目錄
-            for (int j =0;j< m.getChildren().get(i).getChildren().size();j++)
+            Menu EachMenu = RootMenu.getChildren().get(i);
+            System.out.println("===="+EachMenu.getName()+"===="); //菜單目錄
+            for (int j =0;j< EachMenu.getChildren().size();j++)
             {
-                System.out.println(m.getChildren().get(i).getChildren().get(j).getName()); //菜名
-                System.out.println(m.getChildren().get(i).getChildren().get(j).getPrice()); //菜價格
+                System.out.println(EachMenu.getChildren().get(j).getName()); //菜名
+                System.out.println(EachMenu.getChildren().get(j).getPrice()); //菜價格
             }
         }
 
