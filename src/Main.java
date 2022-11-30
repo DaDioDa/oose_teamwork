@@ -86,7 +86,7 @@ public class Main {
             System.out.println("點" + EachMenu.getName());
             for (int j = 0; j < EachMenu.getChildren().size(); j++) {
                 Menu EachItem = EachMenu.getChildren().get(j);
-                System.out.println((j + 1) + ". " + EachItem.getName());
+                System.out.println((j + 1) + ". " + EachItem.getName() + "\t" + EachItem.getPrice() + "$");
             }
             System.out.print("輸入餐點號碼：");
             int ask = sc.nextInt();

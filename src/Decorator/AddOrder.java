@@ -16,6 +16,6 @@ public class AddOrder extends BaseOrder {
     }
 
     public String getName() {
-        return this.order.getName() + "佐" + name;
+        return this.order.getName() + "\n佐" + name;
     }
 }
