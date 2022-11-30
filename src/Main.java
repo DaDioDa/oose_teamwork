@@ -5,6 +5,9 @@ import Builder.TomatoNoodleBuilder;
 import Singleton.Controller;
 import Composite.*;
 import Decorator.*;
+
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -39,7 +42,7 @@ public class Main {
         m4.add(m4_It1);
         m4.add(m4_It2);
         //--新增菜單跟菜end--
-
+        /*
         System.out.println("-------"+RootMenu.getName()+"------"); //菜單根目錄
         for (int i =0;i< RootMenu.getChildren().size();i++)
         {
@@ -51,7 +54,8 @@ public class Main {
                 System.out.println(EachMenu.getChildren().get(j).getPrice()); //菜價格
             }
         }
-
+        */
+        StartOrder(RootMenu);
 
         /*
         MMBuilder tomatonoodle = new TomatoNoodleBuilder();
@@ -66,5 +70,29 @@ public class Main {
         System.out.println(product.getName());
         System.out.println(product.getCost()+"元");
         */
+    }
+
+    private static void StartOrder(Menu rootMenu)
+    {
+        Scanner sc = new Scanner(System.in);
+
+        MMBuilder tomatonoodle = new TomatoNoodleBuilder();
+        Director director = new Director(tomatonoodle);
+        director.makeProduct();
+        Order product = director.getProduct();
+
+        for (int i = 0; i < rootMenu.getChildren().size(); i++) {
+            Menu EachMenu = rootMenu.getChildren().get(i);
+            System.out.println("點" + EachMenu.getName());
+            for (int j = 0; j < EachMenu.getChildren().size(); j++) {
+                Menu EachItem = EachMenu.getChildren().get(j);
+                System.out.println((j + 1) + ". " + EachItem.getName());
+            }
+            System.out.print("輸入餐點號碼：");
+            int ask = sc.nextInt();
+            product = new AddOrder(product, EachMenu.getChildren().get(ask-1).getName(),EachMenu.getChildren().get(ask-1).getPrice());
+        }
+        System.out.println(product.getName());
+        System.out.print(product.getCost() + "元");
     }
 }
