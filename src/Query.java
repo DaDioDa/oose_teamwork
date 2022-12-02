@@ -3,7 +3,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.*;
 
-public class query {
+public class Query {
     // Connect to your database.
     // Replace server name, username, and password with your credentials
     public static void main(String[] args) {
