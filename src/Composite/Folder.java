@@ -1,4 +1,6 @@
 package Composite;
+import Decorator.OrderType;
+
 import java.util.ArrayList;
 public class Folder implements Menu
 {
@@ -19,6 +21,11 @@ public class Folder implements Menu
     public void remove(Menu m)
     {
         children.remove(m);
+    }
+
+    @Override
+    public OrderType getType() {
+        return null;
     }
 
     public ArrayList<Menu> getChildren()

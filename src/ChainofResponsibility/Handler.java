@@ -1,15 +1,13 @@
 package ChainofResponsibility;
 
-abstract class Handler {
+import Decorator.Order;
+import Decorator.OrderType;
+
+public interface Handler {
     Handler nextHandler = null;
-    public Handler(Handler nextHandler) {
-        this.nextHandler = nextHandler;
-    }
-    public void execute() {
-        action();
-        if (nextHandler != null) {
-            nextHandler.execute();
-        }
-    }
-    abstract void action();
+
+    public void execute(Order product);
+    abstract void action(Order product);
+
+    public abstract void CheckType(OrderType type, String name);
 }

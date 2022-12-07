@@ -1,5 +1,7 @@
 package Decorator;
 
+import ChainofResponsibility.Handler;
+
 public class BaseOrder implements Order{
     Order order;
     private String name; //什麼主餐 or 甜點 or 湯 or 飲料 or 加麵 or 蛋
@@ -17,4 +19,11 @@ public class BaseOrder implements Order{
     {
         return name;
     }
+
+    @Override
+    public void CallChain(Handler handler) {
+
+    }
+
+
 }

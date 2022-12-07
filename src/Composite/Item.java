@@ -1,15 +1,19 @@
 package Composite;
 
+import Decorator.OrderType;
+
 import java.util.ArrayList;
 
 public class Item implements Menu
 {
     private String name;
     private float price;
-    public Item(String name,float price)
+    public OrderType Type;
+    public Item(String name,float price,OrderType type)
     {
         this.name = name;
         this.price = price;
+        this.Type = type;
     }
 
     public String getName()
@@ -30,6 +34,11 @@ public class Item implements Menu
     @Override
     public void remove(Menu m) {
 
+    }
+
+    @Override
+    public OrderType getType() {
+        return Type;
     }
 
     @Override

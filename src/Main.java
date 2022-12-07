@@ -2,6 +2,10 @@ import Builder.Director;
 import Builder.MMBuilder;
 import Builder.Product;
 import Builder.TomatoNoodleBuilder;
+import ChainofResponsibility.ChefHandler;
+import ChainofResponsibility.DessertHandler;
+import ChainofResponsibility.DrinkHandler;
+import ChainofResponsibility.Handler;
 import Singleton.Controller;
 import Composite.*;
 import Decorator.*;
@@ -18,14 +22,14 @@ public class Main {
         Menu m3 = new Folder("甜點");
         Menu m4 = new Folder("飲料");
         //--製造菜的object start--
-        Menu m1_It1 = new Item("唐揚雞",150.0f);
-        Menu m1_It2 = new Item("炙燒雞腿",180.0f);
-        Menu m2_It1 = new Item("玉米巧達濃湯",50.0f);
-        Menu m2_It2 = new Item("杏鮑菇南瓜濃湯",50.0f);
-        Menu m4_It1 = new Item("拿鐵",50.0f);
-        Menu m4_It2 = new Item("纖盈香草茶",60.0f);
-        Menu m3_It1 = new Item("經典提拉米蘇",60.0f);
-        Menu m3_It2 = new Item("草莓奶酪",80.0f);
+        Menu m1_It1 = new Item("唐揚雞",150.0f,OrderType.MainDish);
+        Menu m1_It2 = new Item("炙燒雞腿",180.0f,OrderType.MainDish);
+        Menu m2_It1 = new Item("玉米巧達濃湯",50.0f,OrderType.MainDish);
+        Menu m2_It2 = new Item("杏鮑菇南瓜濃湯",50.0f,OrderType.MainDish);
+        Menu m4_It1 = new Item("拿鐵",50.0f,OrderType.Drink);
+        Menu m4_It2 = new Item("纖盈香草茶",60.0f,OrderType.Drink);
+        Menu m3_It1 = new Item("經典提拉米蘇",60.0f,OrderType.Dessert);
+        Menu m3_It2 = new Item("草莓奶酪",80.0f,OrderType.Dessert);
         //--製造菜的object end--
 
         //--新增菜單跟菜start--
@@ -90,9 +94,16 @@ public class Main {
             }
             System.out.print("輸入餐點號碼：");
             int ask = sc.nextInt();
-            product = new AddOrder(product, EachMenu.getChildren().get(ask-1).getName(),EachMenu.getChildren().get(ask-1).getPrice());
+            product = new AddOrder(product, EachMenu.getChildren().get(ask-1).getName(),EachMenu.getChildren().get(ask-1).getPrice(),EachMenu.getChildren().get(ask-1).getType());
         }
         System.out.println(product.getName());
-        System.out.print(product.getCost() + "元");
+        System.out.print(product.getCost() + "元\n");
+
+        Handler handler = new ChefHandler(
+                new DessertHandler(
+                        new DrinkHandler(null)
+                )
+        );
+        handler.execute(product);
     }
 }

@@ -1,11 +1,23 @@
 package ChainofResponsibility;
 
-class DrinkHandler  extends Handler {
+import Decorator.Order;
+import Decorator.OrderType;
+
+public class DrinkHandler  extends BaseHandler {
     public DrinkHandler (Handler nextHandler) {
         super(nextHandler);
     }
+
+    public void action(Order product)
+    {
+        product.CallChain(this);
+    }
+
     @Override
-    void action() {
-        System.out.println("DrinkHandler");
+    public void CheckType(OrderType type, String name) {
+        if(type == OrderType.Drink)
+        {
+            System.out.println("Bartender should make "+ name);
+        }
     }
 }

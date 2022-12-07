@@ -8,6 +8,6 @@ public class Main {
                         new DrinkHandler(null)
                 )
         );
-        handler.execute();
+        //handler.execute(product);
     }
 }

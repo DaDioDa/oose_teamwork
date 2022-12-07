@@ -1,5 +1,6 @@
 package Builder;
 
+import ChainofResponsibility.Handler;
 import Decorator.Order;
 
 public class Product implements Order {
@@ -21,5 +22,10 @@ public class Product implements Order {
     @Override
     public String getName() {
         return sauce + starch;
+    }
+
+    @Override
+    public void CallChain(Handler handler) {
+
     }
 }
